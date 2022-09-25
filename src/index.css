@@ -1,0 +1,382 @@
+.navbar{
+  text-align: center;
+  text-decoration: none;
+  border-bottom: solid;
+}
+
+.navbar a{
+  text-decoration: none;
+  color: black;
+  font-size: large;
+}
+
+
+/* Home */
+.home{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 80%;
+}
+
+.homee{
+  display: flex;
+  width: 100%;
+}
+
+.sidebar{
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(160, 160, 160);
+  width: 20%;
+  height: 600px;
+  text-align: center;
+  overflow-y: scroll;
+}
+
+.side-task-div a{
+  text-decoration: none;
+  color: black;
+}
+.sidebar h4{
+  color: white;
+}
+
+.side-tasks{
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.side-task{
+  width: 150px;
+  padding: 5px;
+  margin: 8px;
+  background-color: rgb(220, 220, 220);
+  font-size: small;
+  border: solid;
+  border-radius: 5px;
+}
+
+.side-actions{
+  display: flex;
+  justify-content: end;
+  margin-right: 20px;
+  margin-bottom: 7px;
+}
+
+.side-actions i{
+  margin: 3px;
+  margin-top: 10px;
+  cursor: grab;
+}
+
+
+.done-true{
+  color: rgb(211, 184, 184);
+}
+
+.side-task-today{
+  background-color: white;
+  
+}
+
+.side-task p{
+  margin: 1px;
+}
+
+.home-top{
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home-month p{
+  font-size:x-large
+}
+
+.home-action input{
+  height: 25px;
+  width: 120px;
+}
+
+.home-action input:focus{
+  box-shadow: 0 0 10px #719ECE;
+  border: none;
+}
+
+.home-action select{
+  width: 100px;
+}
+
+.home-action span{
+  font-size: small;
+}
+
+.home-action i{
+  margin: 10px;
+  cursor: pointer;
+}
+
+/* Calendar */
+.calendar{
+  display: flex;
+  align-items: center;
+}
+
+.calendar i{
+  margin: 10px;
+  font-size: 70px;
+  cursor: pointer;
+}
+
+
+
+.holiday{
+  color: red;
+  font-size: small;
+}
+
+.box {
+  width: 700px;
+  height: auto;
+  border: solid;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.day-box-curr{
+  width: 98px;
+  height: 80px;
+  border: solid;
+  border-width: 1px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.day-box-prev, .day-box-next{
+  width: 98px;
+  height: 80px;
+  border: solid;
+  border-width: 1px;
+  color: gray;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.day-box-curr p, .day-box-prev p, .day-box-next p{
+  margin: 0;
+}
+
+.day-task{
+  margin: 1px;
+  border-radius: 2px;
+  text-align: center;
+  color: white;
+  white-space: nowrap;
+}
+
+.more-task{
+  background-color: rgb(216, 228, 226);
+  margin: 1px;
+  border-radius: 2px;
+  text-align: center;
+  font-size: small;
+}
+
+.color-0{
+  color: red;
+}
+
+.color-6{
+  color: blue;
+}
+
+.today{
+  background-color: blue;
+  border-radius: 50%;
+  padding: 1px;
+  color: white;
+}
+
+.task-cards{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.task-cards a{
+  color: black;
+  text-decoration: none;
+}
+
+.task-card{
+  height: 150px;
+  width: 230px;
+  border: solid;
+  margin: 10px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.task-card p{
+  margin: 4px;
+}
+
+.task-card .card-title{
+  margin: 10px;
+  font-size: large;
+}
+.border-red{
+  border-color: red;
+}
+.border-blue{
+  border-color: blue;
+}
+.border-green{
+  border-color: green;
+}
+.border-gold{
+  border-color: gold;
+}
+
+
+
+/* create, edit */
+
+.create{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.create-box{
+  width: 600px;
+  height: 420px;
+  border: solid;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.create-box i{
+  margin: 4px;
+}
+
+.select-category{
+  margin: 15px;
+  height: 25px;
+  width: 150px;
+  margin-left: 2px;
+}
+
+.input-category{
+  height: 25px;
+  width: 150px;
+}
+
+.category-btn{
+  height: 32px;
+  background-color: rgb(196, 224, 236);
+  border: none;
+  cursor: pointer;
+}
+
+.input-title{
+  margin: 15px;
+  height: 30px;
+  width: 250px;
+}
+
+.input-priority{
+  margin: 10px;
+  margin-left: 2px;
+}
+
+.input-textarea{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.input-textarea textarea{
+  height: 60px;
+  width: auto;
+  margin-left: 3px;
+}
+
+
+.create-btn{
+  background-color: rgb(189, 218, 229);
+  border: none;
+  height: 40px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.bg-red{
+  background-color: red;
+}
+.bg-blue{
+  background-color: blue;
+}
+.bg-green{
+  background-color: green;
+}
+.bg-gold{
+  background-color: gold;
+}
+.red{
+  border-color: red;
+}
+.blue{
+  border-color: blue;
+}
+.green{
+  border-color: green;
+}
+.gold{
+  border-color: gold;
+}
+
+.task-detail{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.detail-box{
+  width: 400px;
+  border: solid;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.detail-box i{
+  margin: 10px;
+}
+
+.detail-box a{
+  color: black;
+}
+
+
+.edit-box{
+  width: 600px;
+  border: solid;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.edit-box i{
+  margin: 4px;
+}
