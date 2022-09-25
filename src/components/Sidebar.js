@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import tasks from "../pages/data/tasks";
 import SideTask from "./SideTask";
 
-const Sidebar = ({selectedDay}) => {
+const Sidebar = ({selectedDay, change, setChange}) => {
     const [sideTasks, setSideTasks] = useState([])
     const sidebarRef = useRef(null);
 
@@ -34,7 +34,7 @@ const Sidebar = ({selectedDay}) => {
             <h4>タスク一覧</h4>
             <div className="side-tasks">
                 {sideTasks.map(task =>
-                    <SideTask key={task.id} task={task} getDateString={getDateString} />
+                    <SideTask key={task.id} task={task} getDateString={getDateString} change={change} setChange={setChange} />
                 )}
             </div>
         </div>

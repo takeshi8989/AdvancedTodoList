@@ -4,7 +4,7 @@ import DayTask from "./DayTask";
 
 const DayBox = ({dayObj, filterWord, setSelectedDay}) => {
     const [taskArr, setTaskArr] = useState([]);
-    const [holidays, setHolidays] = useState([]);
+    const [holidays, setHolidays] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [isToday, setIsToday] = useState(false);
 
@@ -42,12 +42,12 @@ const DayBox = ({dayObj, filterWord, setSelectedDay}) => {
         if(getDateString(dateObj) == getDateString(dayObj)){
             setIsToday(true);
         }
-        setHolidays([]);
+        setHolidays(null);
         fetch("https://holidays-jp.github.io/api/v1/date.json")
             .then(res => res.json())
             .then(data => {
                 if(data[getDateString(dayObj)] != undefined){
-                    setHolidays([...holidays, data[getDateString(dayObj)]]);
+                    setHolidays(data[getDateString(dayObj)]);
                 }
                 setIsLoading(false);
             })
@@ -59,18 +59,18 @@ const DayBox = ({dayObj, filterWord, setSelectedDay}) => {
             {!isToday && dayObj.type == "curr" && <span className={`color-${dayObj.id % 7}`}>{dayObj.day}</span>}
             {isToday  && <span className="today">{dayObj.day}</span>}
 
-            {!isLoading && holidays.length > 0 && 
-                holidays.map(holiday => <span key={holiday} className="holiday">{holiday}</span>
+            {!isLoading && holidays != null && 
+                <span className="holiday">{holidays}</span>
+            }
+
+            {!isLoading && taskArr.filter(task => !task.deleted).length <= 3 && 
+                taskArr.filter(task => !task.deleted).map(task => <DayTask task={task} key={task.id} />
             )}
 
-            {!isLoading && taskArr.length <= 3 && 
-                taskArr.map(task => <DayTask task={task} key={task.id} />
-            )}
-
-            {!isLoading && taskArr.length > 3 &&
+            {!isLoading && taskArr.filter(task => !task.deleted).length > 3 &&
                 <div>
-                    <DayTask task={taskArr[0]} />
-                    <DayTask task={taskArr[1]} />
+                    <DayTask task={taskArr.filter(task => !task.deleted)[0]} />
+                    <DayTask task={taskArr.filter(task => !task.deleted)[1]} />
                     <div className="more-task">他 {taskArr.length - 2} 件</div>
                 </div>
             }

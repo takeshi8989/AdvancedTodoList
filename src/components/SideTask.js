@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const SideTask = ({task, getDateString}) => {
+const SideTask = ({task, getDateString, change, setChange}) => {
     const [isToday, setIsToday] = useState(false);
-    const [change, setChange] = useState(0);
 
     const achiveTask = (task) => {
         task.done = true;

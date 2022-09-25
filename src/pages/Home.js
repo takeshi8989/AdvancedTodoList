@@ -14,6 +14,7 @@ const Home = () => {
     const [mAndY, setMAndY] = useState("");
     const [selectedDay, setSelectedDay] = useState("");
     const history = useHistory();
+    const [change, setChange] = useState(0);
 
     const handleSearch = (e) =>{
         setSearchWord(e.target.value);
@@ -87,7 +88,7 @@ const Home = () => {
                     <p>該当なし</p>
                 }
             </div>
-            <Sidebar selectedDay={selectedDay} />
+            <Sidebar selectedDay={selectedDay} change={change} setChange={setChange} />
         </div>
     );
 }
