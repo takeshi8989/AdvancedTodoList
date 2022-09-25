@@ -77,14 +77,14 @@ const Home = () => {
                 <Calendar setMAndY={setMAndY} filterWord={filterWord} setSelectedDay={setSelectedDay} />
                 {searchWord != "" && <p>{searchWord} でタスク検索</p>}
                 <div className="task-cards">
-                    {searchWord != "" && tasks.filter(task => task.title.toLowerCase().indexOf(searchWord.toLowerCase()) != -1).map(task => 
+                    {searchWord != "" && tasks.filter(task =>  !task.deleted && task.title.toLowerCase().indexOf(searchWord.toLowerCase()) != -1).map(task => 
                         <Link to={{ pathname: "/detail", state: {task: task}}}>
                             <TaskCard task={task} key={task.id} />
                         </Link>
                     )}
                 </div>
                 
-                {searchWord != "" && tasks.filter(task => task.title.toLowerCase().indexOf(searchWord.toLowerCase()) != -1).length == 0 && 
+                {searchWord != "" && tasks.filter(task => !task.deleted && task.title.toLowerCase().indexOf(searchWord.toLowerCase()) != -1).length == 0 && 
                     <p>該当なし</p>
                 }
             </div>
