@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div className="App">
-      <Router>
+      <Router basename="/AdvancedTodoList">
         <Navbar />
         <Switch>
           <Route exact path="/">
