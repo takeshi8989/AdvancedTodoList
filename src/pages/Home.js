@@ -40,7 +40,7 @@ const Home = () => {
         let today = new Date();
         let todayObj = {year: today.getFullYear(), month: today.getMonth() + 1, day: today.getDate()}
         setSelectedDay(getDateString(todayObj));
-    },[tasks])
+    },[])
 
     return (
         <div className="homee">

@@ -42,12 +42,12 @@ const DayBox = ({dayObj, filterWord, setSelectedDay}) => {
         if(getDateString(dateObj) == getDateString(dayObj)){
             setIsToday(true);
         }
-
+        setHolidays([]);
         fetch("https://holidays-jp.github.io/api/v1/date.json")
             .then(res => res.json())
             .then(data => {
                 if(data[getDateString(dayObj)] != undefined){
-                    setHolidays(data[getDateString(dayObj)]);
+                    setHolidays([...holidays, data[getDateString(dayObj)]]);
                 }
                 setIsLoading(false);
             })
@@ -59,7 +59,9 @@ const DayBox = ({dayObj, filterWord, setSelectedDay}) => {
             {!isToday && dayObj.type == "curr" && <span className={`color-${dayObj.id % 7}`}>{dayObj.day}</span>}
             {isToday  && <span className="today">{dayObj.day}</span>}
 
-            {holidays.length > 0 && <span className="holiday"> {holidays}</span>}
+            {!isLoading && holidays.length > 0 && 
+                holidays.map(holiday => <span key={holiday} className="holiday">{holiday}</span>
+            )}
 
             {!isLoading && taskArr.length <= 3 && 
                 taskArr.map(task => <DayTask task={task} key={task.id} />
